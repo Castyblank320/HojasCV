@@ -1,0 +1,35 @@
+[
+  {
+    "person": {
+      "id": "2",
+      "name": "Minecra",
+      "age": 23,
+      "sex": "M"
+    },
+    "general": "",
+    "experience": "",
+    "Skills": ""
+  },
+  {
+    "person": {
+      "id": "0",
+      "name": "Yo",
+      "age": 19,
+      "sex": "M"
+    },
+    "general": "tu madre",
+    "experience": "si",
+    "Skills": "no"
+  },
+  {
+    "person": {
+      "id": "1",
+      "name": "VAMOSMESSI",
+      "age": 99,
+      "sex": "M"
+    },
+    "general": "MESSI",
+    "experience": "VAMOS MESSI SI SE PUEDE",
+    "Skills": "MEEEEEEEESSSSSSSSSSSIIIIIIIIIIIIIIII"
+  }
+]
