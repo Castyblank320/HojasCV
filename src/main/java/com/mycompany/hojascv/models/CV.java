@@ -8,24 +8,25 @@ package com.mycompany.hojascv.models;
  *
  * @author user
  */
-public class CV{
+public class CV {
+
     private Person person;
-    private String general="";
-    private String experience="";
-    private String Skills="";
-    
-    public CV(Person person){
+    private String general = "";
+    private String experience = "";
+    private String Skills = "";
+
+    public CV(Person person) {
         this.person = person;
     }
-    
-    public String getId(){
+
+    public String getId() {
         return person.getId();
     }
-    
+
     public String getGeneral() {
         return general;
     }
-    
+
     public void setGeneral(String general) {
         this.general = general;
     }
@@ -49,5 +50,5 @@ public class CV{
     public void setSkills(String Skills) {
         this.Skills = Skills;
     }
-    
+
 }

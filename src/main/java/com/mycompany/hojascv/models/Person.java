@@ -9,23 +9,24 @@ package com.mycompany.hojascv.models;
  * @author user
  */
 public class Person {
+
     private String id;
     private String name;
     private int age;
     private char sex;
-    
-    public Person(String id){
+
+    public Person(String id) {
         this.id = id;
     }
-    
+
     public String getId() {
         return id;
     }
-    
+
     public void setId(String id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -49,5 +50,5 @@ public class Person {
     public void setSex(char sex) {
         this.sex = sex;
     }
-    
+
 }

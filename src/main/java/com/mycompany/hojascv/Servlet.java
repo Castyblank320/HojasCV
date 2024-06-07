@@ -24,8 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/index")
 public class Servlet extends HttpServlet {
-    
+
     private ArrayList<CV> CVs;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,14 +38,14 @@ public class Servlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String id = request.getParameter("id");
         String delete = request.getParameter("delete");
         JSON json = this.getJSON(request);
         CVs = json.getSave();
-        
-        if (delete != null){
-            if (delete.equals("True")){
+
+        if (delete != null) {
+            if (delete.equals("True")) {
                 CVs.remove(getById(id));
                 json.save(CVs);
                 request.setAttribute("CVs", CVs);
@@ -56,12 +57,12 @@ public class Servlet extends HttpServlet {
 
             request.setAttribute("CVs", CVs);
             request.getRequestDispatcher("/List.jsp").forward(request, response);
-        } else  if (Integer.parseInt(id) < 0) {
+        } else if (Integer.parseInt(id) < 0) {
             int c = 0;
-            while(getById(c+"") != null){
-                c+=1;
+            while (getById(c + "") != null) {
+                c += 1;
             }
-            CV cv = new CV(new Person(c+""));
+            CV cv = new CV(new Person(c + ""));
             CVs.add(cv);
             json.save(CVs);
             request.setAttribute("CV", cv);
@@ -72,7 +73,7 @@ public class Servlet extends HttpServlet {
             request.getRequestDispatcher("/CVMenu.jsp").forward(request, response);
         }
     }
-    
+
     protected void saveCV(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         JSON json = this.getJSON(request);
@@ -84,9 +85,9 @@ public class Servlet extends HttpServlet {
         cv.setGeneral(request.getParameter("General"));
         cv.setExperience(request.getParameter("Experience"));
         cv.setSkills(request.getParameter("Skills"));
-        
+
         json.save(CVs);
-        
+
         request.setAttribute("CVs", CVs);
         request.getRequestDispatcher("/List.jsp").forward(request, response);
     }
@@ -129,16 +130,16 @@ public class Servlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+
     private JSON getJSON(HttpServletRequest request) {
         ServletContext context = request.getServletContext();
         JSON json = new JSON(context.getRealPath("/WEB-INF/classes/CVs.json"));
         return json;
     }
-    
-    private CV getById(String id){
-        for (CV cv:CVs){
-            if (id.contains(cv.getId())){
+
+    private CV getById(String id) {
+        for (CV cv : CVs) {
+            if (id.contains(cv.getId())) {
                 return cv;
             }
         }

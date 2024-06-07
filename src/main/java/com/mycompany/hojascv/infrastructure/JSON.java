@@ -20,15 +20,16 @@ import java.util.List;
  * @author user
  */
 public class JSON {
+
     final java.lang.reflect.Type typeSave = new TypeToken<List<CV>>() {
     }.getType();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private String path;
-    
-    public JSON(String path){
+
+    public JSON(String path) {
         this.path = path;
     }
-    
+
     public ArrayList<CV> getSave() {
         try {
             ArrayList<CV> CVs = new ArrayList<CV>();
@@ -48,17 +49,17 @@ public class JSON {
 
         return new ArrayList<CV>();
     }
-    
+
     public void setPath(String path) {
         this.path = path;
     }
-    
-    public void saveCV(CV cv){
+
+    public void saveCV(CV cv) {
         List<CV> save = this.getSave();
         save.add(cv);
         this.save(save);
     }
-    
+
     public void save(List<CV> save) {
         try (FileWriter fileWriter = new FileWriter(this.path)) {
             String json = gson.toJson(save);
